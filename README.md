@@ -26,6 +26,18 @@ The Teachers Portal is a web application that allows teachers to manage student 
 ## Installation
 Before you can run the application, you need to install the required gem files and set up the front end with npm.
 
+ - **Clone the Repository**:
+   First, clone the project repository to your local machine:
+
+   ```bash
+   git clone https://github.com/Vyshnav-KS/tailwebs.git
+   ```
+- Navigate to the Project Directory
+
+    ```bash
+    cd tailwebs
+    ```
+    
 1. **Install Ruby and Rails**: Make sure you have Ruby and Rails installed on your system. You can download them from [Ruby's official site](https://www.ruby-lang.org/en/downloads/) and [Rails](https://rubyonrails.org/).
 
 2. **Install Required Gems**:
@@ -37,8 +49,18 @@ Before you can run the application, you need to install the required gem files a
      ```bash
      bundle install
      ```
+   - Run the following command for migrations:
+     ```bash
+     rake db:migrate
+     ```
+
+     - Navigate back to the Project Directory
 
 3. **Install npm live-server**:
+   - Navigate to the `front_end` directory.
+     ```bash
+     cd front_end
+     ```
    - Run the following command to install `live-server`
      ```bash
      npm install live-server
@@ -47,6 +69,7 @@ Before you can run the application, you need to install the required gem files a
      ```bash
      npm install -g live-server
      ```
+    - Navigate back to the Project Directory
 
 ## Starting the Server
 ### Using bash file

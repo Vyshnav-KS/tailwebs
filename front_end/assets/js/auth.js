@@ -62,7 +62,7 @@ async function login() {
             showError('login-error', response.error || 'Invalid credentials.');
         }
     } catch (error) {
-        showError('login-error', 'Unable to connect to server. Please try again later.');
+        showError('login-error', 'Invalid credentials');
         console.error(error);
     }
 }
