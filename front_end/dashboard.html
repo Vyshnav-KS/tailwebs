@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <nav class="dashboard-navbar">
+        <div class="nav-title">Dashboard</div>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </nav>
+    <div class="dashboard-container">
+        <div class="student-list-title">
+            <p>
+                Student List
+            </p>
+        </div>
+        <!-- Add Student Button -->
+        <div class="dashboard-top">
+            <input type="text" id="searchInput" placeholder="search by name or subject" oninput="searchStudents()" />
+            <button class="add-student-btn" onclick=openAddModal()>Add New Student</button>
+        </div>
+        <div class="student-list-container">
+        <table id="student-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student rows will be populated here -->
+            </tbody>
+        </table>
+        </div>
+    </div>
+        <!-- Modal for Editing Student -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Student</h2>
+                <input type="hidden" id="editStudentId">
+                
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" required>
+    
+                <label for="editSubject">Subject:</label>
+                <input type="text" id="editSubject" required>
+    
+                <label for="editMarks">Marks:</label>
+                <input type="number" id="editMarks" required>
+    
+                <button class="edit-student-modal-button" onclick="saveEdit()">Save Changes</button>
+            </div>
+        </div>
+
+        <!-- Modal for Adding New Student -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAddModal()">&times;</span>
+            <h2>Add New Student</h2>
+
+            <label for="addName">Name:</label>
+            <input type="text" id="addName" required>
+
+            <label for="addSubject">Subject:</label>
+            <input type="text" id="addSubject" required>
+
+            <label for="addMarks">Marks:</label>
+            <input type="number" id="addMarks" required>
+
+            <button class="save-student-modal-button" onclick="saveNewStudent()">Add Student</button>
+        </div>
+    </div>
+    </div>
+
+    <script src="assets/js/dom.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/dashboard.js"></script> <!-- New script for dashboard functionality -->
+</body>
+</html>

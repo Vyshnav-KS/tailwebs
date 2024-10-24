@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Portal</title>
+  <link rel="stylesheet" href="<%= asset_path('styles/teacher_portal.css') %>">
+</head>
+<body>
+  <h1>Welcome, <%= @teacher.name %></h1>
+  
+  <div class="student-list">
+    <h2>Student List</h2>
+    <table id="student-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @students.each do |student| %>
+          <tr data-student-id="<%= student.id %>">
+            <td contenteditable="true"><%= student.name %></td>
+            <td contenteditable="true"><%= student.subject %></td>
+            <td contenteditable="true"><%= student.marks %></td>
+            <td>
+              <button class="edit-btn" data-id="<%= student.id %>">Save</button>
+              <button class="delete-btn" data-id="<%= student.id %>">Delete</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <!-- Button to trigger the modal -->
+    <button id="add-student-btn">Add New Student</button>
+  </div>
+
+  <!-- Modal for adding new student -->
+  <div id="new-student-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add New Student</h2>
+      <form id="new-student-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <input type="number" name="marks" placeholder="Marks" required>
+        <button type="submit">Add Student</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="<%= asset_path('javascript/teacher_portal.js') %>"></script>
+</body>
+</html>

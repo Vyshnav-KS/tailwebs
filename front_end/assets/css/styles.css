@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.dashboard-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    height: 50px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.nav-title{
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    margin: 1em;
+}
+
+.logout-btn{
+    margin: 1em;
+    padding: 0.5em 1em;
+    width: 100px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover{
+    color: white;
+    border: none;
+    background-color: rgb(240, 64, 64);
+}
+
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.student-list-title{
+    font-size: large;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.dashboard-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+.add-student-btn{
+    padding: 10px;
+    width: 150px;
+}
+
+.student-list-container {
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+#student-list {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#student-list thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#student-list th, #student-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#student-list tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-dropdown {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.action-dropdown:hover {
+    border-color: #2196F3; /* Highlight border on hover */
+}
+
+.action-dropdown option {
+    padding: 5px;
+}
+
+
+/* auth */
+.auth-root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    background: white;
+    padding: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    border-radius: 8px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form h2 {
+    margin-bottom: 1em;
+}
+
+.auth-form label {
+    margin-bottom: 0.5em;
+}
+
+.auth-form input {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 0.5em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+
+/* Modal styles */
+/* Modal Overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff; /* White background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    width: 400px; /* Set a fixed width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa; /* Gray color */
+    float: right; /* Float to the right */
+    font-size: 28px; /* Larger font */
+    font-weight: bold; /* Bold font */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black; /* Change color on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Input Fields */
+input[type="text"], input[type="number"] {
+    width: 95%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin: 8px 0; /* Add margin */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Button */
+.save-student-modal-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
+.save-student-modal-button:hover {
+    background-color: #45a049; 
+}
+

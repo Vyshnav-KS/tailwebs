@@ -1,0 +1,6 @@
+teachers_portal/log
+teachers_portal/tmp
+teachers_portal/vendor/bundle
+front_end/node_modules
+.DS_Store
+.env
