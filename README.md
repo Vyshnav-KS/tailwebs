@@ -121,7 +121,7 @@ Open another terminal window.
     Start the Rails server:
 
     ```bash
-    bin/rails server
+    rails server
     ```
     The Rails application will be available at http://127.0.0.1:3000.
 
