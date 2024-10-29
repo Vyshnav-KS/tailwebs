@@ -10,8 +10,5 @@ module StudentHelper
     student
     end
   
-    def format_student_details(student)
-      "#{student.name} (#{student.subject}): #{student.marks} marks"
-    end
   end
   

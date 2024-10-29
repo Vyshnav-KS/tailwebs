@@ -15,6 +15,7 @@ class Api::StudentsController < ApplicationController
 
   def create
     student = add_or_update_student(student_params[:name], student_params[:subject], student_params[:marks].to_i)
+    # student = add_or_update_student(student_params)
     if student.persisted?
       render json: student, status: :created
     else

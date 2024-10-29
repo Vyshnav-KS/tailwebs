@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
             # JWT.decode(token, ENV['JWT_SECRET']).first
             begin
                 JWT.decode(token, 'abcd_1234').first
-            rescue JWT::DecdeError
+            rescue JWT::DecodeError
                 nil
             end
         end

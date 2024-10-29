@@ -31,12 +31,6 @@ class Api::TeachersController < ApplicationController
         end
     end
 
-    private
-
-    def user_params
-        params.require(:teacher).permit([:name, :email, :password])
-    end
-
     def encode_token(payload)
         # JWT.encode(payload, "ENV['SECRET_KEY']", 'HS256')
         JWT.encode(payload, "abcd_1234", 'HS256')
