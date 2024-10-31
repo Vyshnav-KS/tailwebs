@@ -14,7 +14,7 @@ window.onload = function() {
 let allStudents = [];
 async function fetchStudents() {
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:3000/api/students', {
+    const response = await fetch('http://localhost:8000/api/get_students/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -108,42 +108,49 @@ function saveNewStudent() {
 
     if (name && subject && marks) {
         const token = localStorage.getItem('token');
-        fetch('http://localhost:3000/api/students', {
+        fetch('http://localhost:8000/api/create_student/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-                student: {
-                    name: name,
-                    subject: subject,
-                    marks: parseInt(marks)
-                }
+                name: name,
+                subject: subject,
+                marks: parseInt(marks)
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                alert("Error adding student: " + data.error);
-            } else {
-                alert("Student added successfully!");
-                closeAddModal();
-                fetchStudents();
+        .then(response => {
+            console.log(response); 
+            if (!response.ok) {
+                // Handle HTTP errors
+                return response.json().then(errorData => {
+                    throw new Error(errorData.error || 'Failed to add student');
+                });
             }
+            return response.json(); // Parse response JSON if status is OK
         })
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            alert("Student added successfully!");
+            closeAddModal();
+            fetchStudents();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Error adding student: " + error.message);
+        });
     } else {
         alert("Please fill in all fields");
     }
 }
+
 
 // Delete student from the server
 async function deleteStudent(studentId) {
     const token = localStorage.getItem('token');
     const confirmDelete = confirm("Are you sure you want to delete this student?");
     if (confirmDelete) {
-        const response = await fetch(`http://localhost:3000/api/students/${studentId}`, {
+        const response = await fetch(`http://localhost:8000/api/student_detail/${studentId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -189,18 +196,18 @@ async function saveEdit() {
 
     const token = localStorage.getItem('token');
     
-    const response = await fetch(`http://localhost:3000/api/students/${studentId}`, {
+    const response = await fetch(`http://localhost:8000/api/student_detail/${studentId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            student: {
+            // student: {
                 name: updatedName,
                 subject: updatedSubject,
                 marks: updatedMarks
-            }
+            // }
         })
     });
 

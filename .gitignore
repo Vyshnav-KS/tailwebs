@@ -4,3 +4,4 @@ teachers_portal/vendor/bundle
 front_end/node_modules
 .DS_Store
 .env
+venv/

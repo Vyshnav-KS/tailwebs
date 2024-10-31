@@ -1,8 +1,8 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://localhost:8000/api';
 
 async function apiLogin(email, password) {
     try {
-        const response = await fetch(`${API_URL}/login`, {
+        const response = await fetch(`${API_URL}/login/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,13 +20,13 @@ async function apiLogin(email, password) {
     }
 }
 
-async function apiRegister(name, email, password) {
-    const response = await fetch(`${API_URL}/register`, {
+async function apiRegister(username, email, password) {
+    const response = await fetch(`${API_URL}/register/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ username, email, password })
     });
 
     return response.json();
