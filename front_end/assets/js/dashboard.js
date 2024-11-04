@@ -161,7 +161,15 @@ async function deleteStudent(studentId) {
             alert('Student deleted successfully.');
             fetchStudents(); // Refresh the student list
         } else {
-            alert('Failed to delete student.');
+            const errorData = response.status;
+            console.log(errorData);
+            if (errorData == 403){
+                alert("You are not allowed to delete this student");
+                console.log(errorData);
+            }
+            else{
+                alert("Failed to update student details");
+            }
         }
     }
 }
@@ -202,7 +210,7 @@ async function saveEdit() {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
+        body: JSON.stringify({  
             // student: {
                 name: updatedName,
                 subject: updatedSubject,
@@ -216,7 +224,15 @@ async function saveEdit() {
         closeEditModal();
         fetchStudents(); // Refresh the student list
     } else {
-        alert('Failed to update student details.');
+        const errorData = response.status;
+        console.log(errorData);
+        if (errorData == 403){
+            alert("You are not allowed to edit this student");
+            console.log(errorData);
+        }
+        else{
+            alert("Failed to update student details");
+        }
     }
 }
 

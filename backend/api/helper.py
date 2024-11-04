@@ -5,9 +5,6 @@ from django.core.exceptions import ValidationError
 
 def add_or_update_student(data):
 
-    print(f"Data from add_or_update_student: {data}")
-    
-    print(f"name: {data.get('name')}")
     name = data.get('name')
     subject = data.get('subject')
     marks = data.get('marks', 0)
@@ -23,5 +20,5 @@ def add_or_update_student(data):
         student = Student.objects.create(name=name, subject=subject, marks=marks)
 
     serializer = StudentSerializer(student)
-    print(f"Final serializer: {serializer}")
+    # print(f"Final serializer: {serializer}")
     return serializer.data 
